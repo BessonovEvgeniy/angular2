@@ -1,0 +1,12 @@
+<div *ngIf = "items != null && items.length > 0; else empty_cart">
+  <table *ngFor="let item of items">
+    <app-cart-item [item] = 'item' (removeItem)='onDelete($event)' (addItem)='onAdd($event)'></app-cart-item>
+  </table>
+  <app-cart-summary></app-cart-summary>
+</div>
+
+<ng-template #empty_cart>
+  <div>
+    Cart is empty
+  </div>
+</ng-template>

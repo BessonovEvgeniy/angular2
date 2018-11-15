@@ -1,0 +1,7 @@
+<tr>
+  <td> <strong>Product name:</strong> {{item.product.name}} </td>
+  <td> <strong>Price:</strong> {{item.product.price}} </td>
+  <td> <strong>Quantity:</strong> {{item.quantity}}</td>
+  <td><button (click)="onAdd(item.product)">Add</button></td>
+  <td><button (click)="onDelete(item.product)">Delete</button></td>
+</tr>

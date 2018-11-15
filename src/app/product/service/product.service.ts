@@ -13,7 +13,7 @@ export class ProductService {
         "name": "banana",
         "description": "small yellow banana",
         "price": 10,
-        "isAvailable": true,
+        "isAvailable": false,
         "category": Category.Fruits,
       },
       {

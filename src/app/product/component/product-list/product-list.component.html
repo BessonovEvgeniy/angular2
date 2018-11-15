@@ -2,5 +2,5 @@
 
 <div *ngFor="let product of products">
   <app-product [product]='product'></app-product>
-  <button (click)="onBuy(product)">Buy it!</button>
+  <button [disabled]='!product.isAvailable' (click)="onBuy(product)">Buy it!</button>
 </div>
