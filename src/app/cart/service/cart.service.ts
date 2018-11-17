@@ -34,7 +34,8 @@ export class CartService {
       console.log("This product has founded in the cart.");
       if (this.items[index].quantity === 1) {
         console.log("Cart item will be removed from the cart.");
-        this.items.slice(index,1);
+        this.items.splice(index,1);
+        console.log(this.items.length);
       } else {
         console.log("Cart item quantity decreased.");
         this.items[index].quantity--;

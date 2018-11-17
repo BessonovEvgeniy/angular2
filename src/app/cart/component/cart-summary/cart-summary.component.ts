@@ -8,7 +8,7 @@ import {CartSummaryModel} from "../../model/cart-summary.model";
   templateUrl: './cart-summary.component.html',
   styleUrls: ['./cart-summary.component.css']
 })
-export class CartSummaryComponent implements OnInit, OnDestroy {
+export class CartSummaryComponent implements OnInit {
 
   @Input() summary: CartSummaryModel;
   private sub: Subscription;
@@ -17,9 +17,5 @@ export class CartSummaryComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.summary = this.cartService.summary;
-  }
-
-  ngOnDestroy(): void {
-    this.sub.unsubscribe();
   }
 }

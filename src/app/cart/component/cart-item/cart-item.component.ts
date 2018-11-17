@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Optional, Output} from '@angular/core';
 import { CartItemModel } from "../../model/cart-item.model";
 
 @Component({
@@ -13,9 +13,7 @@ export class CartItemComponent {
   @Output() addItem: EventEmitter<CartItemModel> = new EventEmitter<CartItemModel>();
   @Output() removeItem: EventEmitter<CartItemModel> = new EventEmitter<CartItemModel>();
 
-  constructor() {}
-
-  constructor(item: CartItemModel) {
+  constructor(@Optional() item: CartItemModel) {
     this.item = item;
   }
 
