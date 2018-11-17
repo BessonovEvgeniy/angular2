@@ -3,7 +3,7 @@ import { CartItemModel } from "../../model/cart-item.model";
 
 @Component({
   selector: 'app-cart-item',
-  // changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './cart-item.component.html',
   styleUrls: ['./cart-item.component.css']
 })

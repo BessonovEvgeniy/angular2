@@ -8,12 +8,14 @@ import { ProductsModule } from "./product/products.module";
 import { SharedModule } from "./shared/shared.module";
 import { OthersModule } from "./others/others.module";
 import { CoreModule } from "./core/core.module";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
 
     CartModule,
     ProductsModule,

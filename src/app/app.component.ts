@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 import {ProductService} from "./product/service/product.service";
 import {CartService} from "./cart/service/cart.service";
 
@@ -9,6 +9,14 @@ import {CartService} from "./cart/service/cart.service";
   styleUrls: ['./app.component.css'],
   providers: [ProductService, CartService]
 })
-export class AppComponent {
+export class AppComponent  implements AfterViewInit {
   title = 'shop';
+
+  @ViewChild('appTitle')
+  h1: ElementRef;
+
+  ngAfterViewInit() {
+    (<HTMLElement>this.h1.nativeElement).innerText = 'This is changed title from parent component.';
+  }
+
 }
