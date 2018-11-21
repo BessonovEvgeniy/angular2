@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import {ProductModel} from "../../product/model/product.model";
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class CommunicatorService {
 
   private channel = new Subject<ProductModel>();

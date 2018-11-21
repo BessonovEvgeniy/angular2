@@ -1,7 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProductService} from "../../service/product.service";
 import {ProductModel} from "../../model/product.model";
-import {CommunicatorService} from "../../../shared/service/communicator.service";
+import {CommunicatorService} from "../../service/communicator.service";
 
 @Component({
   selector: 'app-product-list',
@@ -10,7 +10,7 @@ import {CommunicatorService} from "../../../shared/service/communicator.service"
 })
 export class ProductListComponent implements OnInit{
 
-  @Input() products: ProductModel[];
+  products: ProductModel[];
 
   constructor(private productService: ProductService,  private communicatorService: CommunicatorService) {}
 
