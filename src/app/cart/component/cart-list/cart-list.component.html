@@ -1,3 +1,4 @@
+{{constants.appName}}
 <div *ngIf = "items != null && items.length > 0; else empty_cart">
   <table *ngFor="let item of items">
     <app-cart-item [highlight] = "'red'" [item] = 'item' (removeItem)='onDelete($event)' (addItem)='onAdd($event)'></app-cart-item>

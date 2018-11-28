@@ -63,7 +63,8 @@ export class CartService {
     this.summary.totalQuantity = totalQuantity;
   }
 
-  cleanCart() {
+  cleanCart() : CartItemModel[]{
     this.items = [];
+    return this.items;
   }
 }

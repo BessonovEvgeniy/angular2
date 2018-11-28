@@ -1,6 +1,6 @@
 <p>Here you are all products We have. Enjoy!</p>
 
 <div *ngFor="let product of products">
-  <app-product [product]='product'></app-product>
+  <app-product [border] = "12" [product]='product'></app-product>
   <button [disabled]='!product.isAvailable' (click)="onBuy(product)">Buy it!</button>
 </div>

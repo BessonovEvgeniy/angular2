@@ -8,10 +8,11 @@ import { ProductsModule } from "./product/products.module";
 import { SharedModule } from "./shared/shared.module";
 import { OthersModule } from "./others/others.module";
 import { CoreModule } from "./core/core.module";
-import {FormsModule} from "@angular/forms";
+import { FormsModule } from "@angular/forms";
+import { DemoComponent } from "./core/component/demo/demo.component";
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, DemoComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

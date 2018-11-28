@@ -1,21 +1,29 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {CartService} from "../../service/cart.service";
 import {Subscription} from "rxjs/index";
 import {ProductModel} from "../../../product/model/product.model";
 import {CartItemModel} from "../../model/cart-item.model";
 import {CommunicatorService} from "../../../product/service/communicator.service";
+import {ConstantsService} from "../../../core/service/constants.service";
+
+export const CONSTANTS = new ConstantsService();
 
 @Component({
   selector: 'app-cart-list',
   templateUrl: './cart-list.component.html',
-  styleUrls: ['./cart-list.component.css']
+  styleUrls: ['./cart-list.component.css'],
+  providers: [
+    {provide: ConstantsService, useValue: CONSTANTS}
+  ]
 })
 export class CartListComponent implements OnInit, OnDestroy {
 
   private sub: Subscription;
-  @Input() items: CartItemModel[];
+  items: CartItemModel[];
 
-  constructor(public cartService: CartService, private communicatorService: CommunicatorService) {}
+  constructor(public constants: ConstantsService,
+              public cartService: CartService,
+              private communicatorService: CommunicatorService) {}
 
   ngOnInit(): void {
     this.sub = this.communicatorService.channel$.subscribe(product => (this.cartService.add(product)));
@@ -36,6 +44,6 @@ export class CartListComponent implements OnInit, OnDestroy {
   }
 
   onClearCart(){
-    this.cartService.cleanCart();
+    this.items = this.cartService.cleanCart();
   }
 }
