@@ -3,8 +3,9 @@ import {CartService} from "../../service/cart.service";
 import {Subscription} from "rxjs/index";
 import {ProductModel} from "../../../product/model/product.model";
 import {CartItemModel} from "../../model/cart-item.model";
-import {CommunicatorService} from "../../../product/service/communicator.service";
+import {ProductCommunicatorService} from "../../../product/service/product-communicator.service";
 import {ConstantsService} from "../../../core/service/constants.service";
+import {CartCommunicatorService} from "../../service/cart-communicator.service";
 
 export const CONSTANTS = new ConstantsService();
 
@@ -19,19 +20,26 @@ export const CONSTANTS = new ConstantsService();
 export class CartListComponent implements OnInit, OnDestroy {
 
   private sub: Subscription;
+  private itemsChangedSub: Subscription;
   items: CartItemModel[];
+
+  orderByField: string = 'quantity';
+  dsc: boolean = false;
 
   constructor(public constants: ConstantsService,
               public cartService: CartService,
-              private communicatorService: CommunicatorService) {}
+              private productCommunicatorService: ProductCommunicatorService,
+              private cartCommunicatorService: CartCommunicatorService) {}
 
   ngOnInit(): void {
-    this.sub = this.communicatorService.channel$.subscribe(product => (this.cartService.add(product)));
+    this.sub = this.productCommunicatorService.channel$.subscribe(product => (this.cartService.add(product)));
+    this.itemsChangedSub = this.cartCommunicatorService.channel$.subscribe(items => (this.items = items));
     this.items = this.cartService.items;
   }
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
+    this.itemsChangedSub.unsubscribe();
   }
 
   onDelete(product: ProductModel) {
@@ -45,5 +53,9 @@ export class CartListComponent implements OnInit, OnDestroy {
 
   onClearCart(){
     this.items = this.cartService.cleanCart();
+  }
+
+  onSortChange(dsc: boolean) {
+    this.dsc = dsc;
   }
 }

@@ -5,7 +5,7 @@ import {ProductModel} from "../../product/model/product.model";
 @Injectable({
   providedIn: 'root'
 })
-export class CommunicatorService {
+export class ProductCommunicatorService {
 
   private channel = new Subject<ProductModel>();
 

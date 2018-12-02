@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductService} from "../../service/product.service";
 import {ProductModel} from "../../model/product.model";
-import {CommunicatorService} from "../../service/communicator.service";
+import {ProductCommunicatorService} from "../../service/product-communicator.service";
 
 @Component({
   selector: 'app-product-list',
@@ -10,9 +10,9 @@ import {CommunicatorService} from "../../service/communicator.service";
 })
 export class ProductListComponent implements OnInit{
 
-  products: ProductModel[];
+  products: Promise<Array<ProductModel>>;
 
-  constructor(private productService: ProductService,  private communicatorService: CommunicatorService) {}
+  constructor(private productService: ProductService,  private communicatorService: ProductCommunicatorService) {}
 
   ngOnInit(): void {
     this.products = this.productService.getProducts();

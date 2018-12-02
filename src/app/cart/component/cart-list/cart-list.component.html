@@ -1,9 +1,24 @@
-{{constants.appName}}
-<div *ngIf = "items != null && items.length > 0; else empty_cart">
-  <table *ngFor="let item of items">
-    <app-cart-item [highlight] = "'red'" [item] = 'item' (removeItem)='onDelete($event)' (addItem)='onAdd($event)'></app-cart-item>
+<p>{{constants.appName}}</p>
+
+<p>Order by:
+  <select [(ngModel)]="orderByField">
+    <option value='productModel' selected>Product</option>
+    <option value='quantity'>Quantity</option>
+  </select>
+
+  <input type="radio" name="sort" (change)="onSortChange(true)"/>Asc
+  <input type="radio" name="sort" (change)="onSortChange(false)"/>Desc
+</p>
+
+<div *ngIf="items != null && items.length > 0; else empty_cart">
+
+  <table *ngFor="let item of (items | orderBy: orderByField: dsc)">
+    <app-cart-item [highlight]="'red'" [item]='item' (removeItem)='onDelete($event)'
+                   (addItem)='onAdd($event)'></app-cart-item>
   </table>
+
   <app-cart-summary></app-cart-summary>
+
   <button (click)='onClearCart()'>Clear Cart</button>
 </div>
 <ng-template #empty_cart>

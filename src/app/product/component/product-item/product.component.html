@@ -1,6 +1,6 @@
 <tr>
-  <td>{{product.name}}</td>
-  <td>{{product.description}}</td>
-  <td>{{product.price}}</td>
-  <td>{{product.category}}</td>
+  <td>{{product.name | titlecase}}</td>
+  <td>{{product.description | titlecase }}</td>
+  <td>{{product.price | currency:'USD'}}</td>
+  <td>{{product.categoryName | uppercase}}</td>
 </tr>
