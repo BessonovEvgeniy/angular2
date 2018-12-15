@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Optional, Output } from '@angular/core';
-import { CartItemModel } from "../../model/cart-item.model";
+import { CartItemModel } from '../../model/cart-item.model';
 
 @Component({
   selector: 'app-cart-item',

@@ -1,7 +1,7 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {CartService} from "../../service/cart.service";
-import {Subscription} from "rxjs/index";
-import {CartSummaryModel} from "../../model/cart-summary.model";
+import {Component, Input, OnInit} from '@angular/core';
+import {CartService} from '../../service/cart.service';
+import {Subscription} from 'rxjs/index';
+import {CartSummaryModel} from '../../model/cart-summary.model';
 
 @Component({
   selector: 'app-cart-summary',

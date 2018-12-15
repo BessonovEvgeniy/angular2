@@ -1,4 +1,4 @@
-import {Directive, ElementRef, HostListener, Input, Renderer2} from "@angular/core";
+import {Directive, ElementRef, HostListener, Input, Renderer2} from '@angular/core';
 
 @Directive({
   selector: '[border]'
@@ -6,7 +6,7 @@ import {Directive, ElementRef, HostListener, Input, Renderer2} from "@angular/co
 export class ChangeBorderDirective {
 
   @Input('border')
-  borderWeight: number = 1;
+  borderWeight = 1;
 
   constructor(private el: ElementRef, private renderer: Renderer2) { }
 

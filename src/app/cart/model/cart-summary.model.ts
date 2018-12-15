@@ -1,6 +1,4 @@
 export class CartSummaryModel {
-  totalPrice: number = 0;
-  totalQuantity: number = 0;
-
-  constructor(){}
+  totalPrice = 0;
+  totalQuantity = 0;
 }

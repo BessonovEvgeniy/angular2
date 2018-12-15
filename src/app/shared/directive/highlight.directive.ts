@@ -1,4 +1,4 @@
-import {Directive, ElementRef, HostListener, Input, Renderer2} from "@angular/core";
+import {Directive, ElementRef, HostListener, Input, Renderer2} from '@angular/core';
 
 @Directive({
   selector: '[highlight]'
@@ -6,21 +6,21 @@ import {Directive, ElementRef, HostListener, Input, Renderer2} from "@angular/co
 export class HighlightDirective {
 
   @Input('highlight')
-  color: string = "blue";
+  color = 'blue';
 
   constructor(private el: ElementRef, private renderer: Renderer2) { }
 
   @HostListener('click')
   onClick() {
     console.log('click');
-    var color = "blue";
+    const color = 'blue';
     this.highlight(color);
   }
 
   @HostListener('mouseenter')
   onMouseEnter() {
     console.log('mouseenter');
-    var color = "red";
+    const color = 'red';
     this.highlight(color);
   }
 

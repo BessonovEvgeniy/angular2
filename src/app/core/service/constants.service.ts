@@ -1,5 +1,5 @@
 export class ConstantsService {
 
-  appName: string = 'TaskManager';
-  version: string = '1.0';
+  appName = 'TaskManager';
+  version = '1.0';
 }

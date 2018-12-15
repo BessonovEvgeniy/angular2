@@ -1,5 +1,5 @@
-import {LocalStorageService} from "./localstorage.service";
-import {ConfigModel} from "../model/ConfigModel";
+import {LocalStorageService} from './localstorage.service';
+import {ConfigModel} from '../model/ConfigModel';
 
 export class ConfigOptionsService {
 

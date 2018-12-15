@@ -1,0 +1,13 @@
+<app-product [border]="12" [product]='product'></app-product>
+
+<div *ngIf="product != null && product.comments.length > 0; else no_comments">
+  <div *ngFor="let comment of product.comments">
+    <p>{{comment}}</p>
+  </div>
+</div>
+
+<ng-template #no_comments>
+  <div>
+    No comments
+  </div>
+</ng-template>

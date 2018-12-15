@@ -13,14 +13,14 @@ export class OrderByPipe implements PipeTransform {
       orderByDsc = this.defaultOrderByDsc;
     }
     if (values != null) {
-      // var newValues = values.slice();
+      // const newValues = values.slice();
       console.log('Before ' + values.length);
       values.sort((val1, val2) => {
-        var val1FieldValue = val1[orderByFieldName];
-        var val2FieldValue = val2[orderByFieldName];
+        const val1FieldValue = val1[orderByFieldName];
+        const val2FieldValue = val2[orderByFieldName];
 
-        var rez = 0;
-        if(val1FieldValue < val2FieldValue) {
+        let rez = 0;
+        if (val1FieldValue < val2FieldValue) {
           rez = orderByDsc ? -1 : 1;
         } else if (val1FieldValue > val2FieldValue) {
           rez = orderByDsc ? 1 : -1;
